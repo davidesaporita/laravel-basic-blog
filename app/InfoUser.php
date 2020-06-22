@@ -19,4 +19,10 @@ class InfoUser extends Model
 
     // Remove operations with timestamps
     public $timestamps = false;
+
+    // Relationships
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
