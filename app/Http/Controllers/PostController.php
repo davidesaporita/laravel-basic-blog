@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 use App\Post;
 
 class PostController extends Controller
@@ -47,7 +48,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $comments = Comment::where('post_id', $post->id)
+                           ->orderBy('created_at', 'asc')
+                           ->get();
+
+        return view('posts.show', compact('post', 'comments'));
     }
 
     /**

@@ -18,13 +18,13 @@ class CommentTableSeeder extends Seeder
         $users = User::all();
         $posts = Post::all();
 
-        $comment_number = 100;
+        $comment_number = 300;
         
         for ($i = 0; $i < $comment_number; $i++) {
             $newComment = new Comment();
             $newComment->user_id = $users->random()->id;
             $newComment->post_id = $posts->random()->id;
-            $newComment->title = $faker->words($faker->numberBetween(2,8), true);
+            $newComment->title = strtoupper($faker->words($faker->numberBetween(2,8), true));
             $newComment->body = $faker->paragraphs($faker->numberBetween(1,3), true);
             $newComment->save();
         }
