@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
         $post_number = 40;
         $users = User::all();
 
-        for($i = 0; $i < $users->count(); $i++) {
+        for($i = 0; $i < $users->count()*3; $i++) {
             $newPost = new Post();
             
             $newPost->user_id = $users->random()->id;
