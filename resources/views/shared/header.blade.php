@@ -16,6 +16,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link">Write a new post</a></li>
                         <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link">Users</a></li>
                         <li class="nav-item"><a href="\schematics" target="_blank" class="nav-link">Schematics</a></li> <!-- Just for testing -->
                     </ul>
