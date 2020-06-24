@@ -105,7 +105,26 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        // Validation
+        // TODO: Move in a separate method
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'tags.*' => 'exists:tags,id'
+        ]);
+
+        $data = $request->all();
+
+        $updated = $post->update($data);
+
+        if($updated) {
+            if(!empty($data['tags'])) {
+                $post->tags()->sync($data['tags']);
+            } else {
+                $post->tags()->detach();
+            }
+            return redirect()->route('posts.show', $post->id);
+        }
     }
 
     /**
