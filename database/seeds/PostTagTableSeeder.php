@@ -38,9 +38,7 @@ class PostTagTableSeeder extends Seeder
                 } while (count($tag_ids) < $tags_number_for_post);
 
                 // Populate pivot table
-                foreach($tag_ids as $tag_id) {
-                    $post->tags()->attach($tag_id);
-                }
+                $post->tags()->attach($tag_ids);
 
                 // Reset array
                 unset($tag_ids);
