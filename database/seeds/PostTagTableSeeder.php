@@ -28,7 +28,7 @@ class PostTagTableSeeder extends Seeder
 
                 // Find unique tag ids (as many as generated random number)
                 do {
-                    
+
                     $temp_id = rand(1, $tags_total_number);
                     
                     if(!in_array($temp_id, $tag_ids)) {
