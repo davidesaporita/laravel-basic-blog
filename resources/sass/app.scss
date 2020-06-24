@@ -1,1 +1,8 @@
-//
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Partials
+@import "partials/_variables";
+@import "partials/_common";
+@import "partials/_header";
+@import "partials/_footer";

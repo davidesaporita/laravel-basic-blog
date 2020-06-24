@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Boolpress</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="{{ route('home') }}">Home</a> | <a href="{{ route('users.index') }}">Users</a> | <a href="{{ route('posts.index') }}">Posts</a> 
-    </div>
+    <div id="app">
+        <header class="header mb-5">
+            <nav class="navbar navbar-expand navbar-light bg-light">
+                <a class="navbar-brand" href="{{ route('home') }}">Boolpress</a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link">Users</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
