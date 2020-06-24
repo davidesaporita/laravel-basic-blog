@@ -22,11 +22,19 @@ class PostTagTableSeeder extends Seeder
             // 75% of chanches
             if($faker->boolean(75)) { 
                 // Random number for tags in this post
-                $tags_number_for_post = $faker->numberBetween(1, $tags_total_number);
+                $tags_number_for_post = rand(1, 4);
+                $tag_counter = 0;
+                $tag_ids = array();
 
                 // Find unique tag ids (as many as generated random number)
                 do {
-                    $tag_ids[] = $faker->unique(true)->numberBetween(1, $tags_number_for_post);
+                    
+                    $temp_id = rand(1, $tags_total_number);
+                    
+                    if(!in_array($temp_id, $tag_ids)) {
+                        $tag_ids[] = $temp_id;
+                    }
+                    
                 } while (count($tag_ids) < $tags_number_for_post);
 
                 // Populate pivot table
