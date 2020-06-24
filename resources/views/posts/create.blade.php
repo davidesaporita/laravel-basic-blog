@@ -1,8 +1,18 @@
 @extends('layouts.main')
 
 @section('content')
-    
+
     <h1 class="mb-4">Add a new post</h1>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form action="{{ route('posts.store') }}" method="POST">
         @csrf

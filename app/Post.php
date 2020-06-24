@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     // Fillables field for mass insert
-    protected $fillables = [
+    protected $fillable = [
         'user_id',
         'title',
+        'slug',
         'body'
     ];
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Comment;
 use App\Post;
 use App\Tag;
@@ -39,7 +40,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation
+        // TODO: Move in a separate method
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'tags.*' => 'exists:tags,id'
+        ]);
+
+        $data = $request->all();
+        
+        // Temporarily assign all posts to user 1
+        $data['user_id'] = 1;
+
+        // Generate Slug for post
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $newPost = new Post();
+        $newPost->fill($data);
+        $saved = $newPost->save();
+
+        if($saved) {
+            if(!empty($data['tags'])) {
+                $newPost->tags()->attach($data['tags']);
+            }
+            return redirect()->route('posts.show', $newPost->id);  
+        }
+
     }
 
     /**
