@@ -17,7 +17,9 @@
             @endforelse
         </h5>
     </div>
-    <form class="mb-4" action="{{ route('posts.destroy', $post->id) }}">
+    <form class="mb-4" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+        @csrf
+        @method('delete')
         <a class="btn btn-warning" href="{{ route('posts.edit', $post->id) }}">Edit</a>
         <input class="btn btn-danger" type="submit" value="Delete">
     </form>

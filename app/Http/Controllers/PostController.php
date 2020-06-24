@@ -133,8 +133,30 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        if(empty($post)) {
+            abort('404');
+        }
+
+        // Reference
+        $post_deleted_title = $post->title;
+
+        /**
+         * Delete operations
+         */ 
+
+        // Detach relative records from pivot table post_tags (many to many)
+        $post->tags()->detach();
+
+        // Delete relative records from comments table (1 to many)
+        $post->comments()->delete();
+
+        // Delete record from post table
+        $deleted = $post->delete();
+
+        if($deleted) {
+            return redirect()->route('posts.index')->with('post-deleted-title', $post_deleted_title);
+        }
     }
 }
