@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.update') }}" method="POST">
+    <form action="{{ route('posts.update', $post->id) }}" method="POST">
         @csrf
         @method('patch')
 
@@ -29,7 +29,10 @@
 
         @foreach($tags as $tag)
             <div class="form-check">
-                <input type="checkbox" name="tags[]" id="tag-{{ $loop->iteration }}" value="{{ $tag->id }}">
+                <input type="checkbox" name="tags[]" 
+                       id="tag-{{ $loop->iteration }}" 
+                       value="{{ $tag->id }}" 
+                       @if($post->tags->contains($tag->id)) checked @endif >
                 <label for="tag-{{ $loop->iteration }}">{{ $tag->name }}</label>
             </div>
         @endforeach
