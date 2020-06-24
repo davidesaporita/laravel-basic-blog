@@ -37,7 +37,8 @@
             </div>
         @endforeach
 
-        <input class="btn btn-success mt-4" type="submit" value="Create post">
+        <input class="btn btn-success mt-4" type="submit" value="Edit post">
+        <a class="btn btn-warning mt-4" role="button" href="{{ route('posts.show', $post->id) }}">Back to post</a>
         <a class="btn btn-secondary mt-4" role="button" href="{{ route('posts.index') }}">Back to blog archive</a>
     </form>
     
