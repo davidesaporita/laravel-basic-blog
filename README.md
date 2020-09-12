@@ -26,7 +26,7 @@ A simple web application made using Laravel framework, with essentials CRUD oper
 
 ## Installation
 
-1. Clone this repo to your local machine using:
+1. Clone this repo to your local machine:
 ```
 git clone https://github.com/davidesaporita/laravel-basic-blog
 ```
