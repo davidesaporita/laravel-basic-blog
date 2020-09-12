@@ -7,7 +7,7 @@
 
 A simple web application made using Laravel framework, with essentials CRUD operations to manage users, posts, tags and comments.
 
-## Built With
+## :computer: Built With
 
 ### Languages
 - HTML 5
