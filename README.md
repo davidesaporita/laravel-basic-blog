@@ -3,7 +3,7 @@
 > Simple Laravel-made blog 
 > <br>Keywords: Laravel / Blog / CRUD
 
-## Description
+## :information_source: Description
 
 A simple web application made using Laravel framework, with essentials CRUD operations to manage users, posts, tags and comments.
 
@@ -24,7 +24,7 @@ A simple web application made using Laravel framework, with essentials CRUD oper
  - Npm | JS Package Manager
  - Composer | PHP Dependency Manager
 
-## Installation
+## :clipboard: Installation
 
 1. Clone this repo to your local machine:
 ```
@@ -55,7 +55,7 @@ php artisan serve
 npm run watch
 ```
 
-## License
+## :page_facing_up: License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
