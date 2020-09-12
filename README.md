@@ -49,3 +49,13 @@ php artisan key:generate
 ```
 php artisan migrate --seed
 ```
+8. Now you can start server in your local machine. Don't forget to start the npm watcher in your terminal:
+```
+php artisan serve
+npm run watch
+```
+
+## License
+
+MIT license
+Copyright 2020 © Davide Saporita
